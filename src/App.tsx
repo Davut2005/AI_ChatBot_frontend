@@ -17,6 +17,8 @@ function App() {
   const handleSend = async () => {
     if (!input.trim()) return;
 
+    console.log("entered to handleSend fn")
+
     const userMessage: Message = { text: input, sender: 'user' };
     setMessages(prev => [...prev, userMessage]);
     setInput("");
