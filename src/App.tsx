@@ -45,7 +45,9 @@ function App() {
 
   return (
     <div className="app-container">
-      <h1>ChatBot</h1>
+      <header className="header">
+        <h1>Davut GPT</h1>
+      </header>
       <div className="chat-container">
         <div className="messages-list">
           {messages.map((msg, index) => (
@@ -58,23 +60,25 @@ function App() {
           {loading && (
             <div className="message bot">
               <div className="message-bubble">
-                typing...
+                <span className="typing-indicator">typing...</span>
               </div>
             </div>
           )}
         </div>
-        <div className="input-area">
-          <input
-            type="text"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={handleKeyPress}
-            placeholder="Type a message..."
-            disabled={loading}
-          />
-          <button onClick={handleSend} disabled={loading || !input.trim()}>
-            Send
-          </button>
+        <div className="input-container-wrapper">
+          <div className="input-area">
+            <input
+              type="text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={handleKeyPress}
+              placeholder="Send a message..."
+              disabled={loading}
+            />
+            <button onClick={handleSend} disabled={loading || !input.trim()}>
+              <svg stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            </button>
+          </div>
         </div>
       </div>
     </div>
